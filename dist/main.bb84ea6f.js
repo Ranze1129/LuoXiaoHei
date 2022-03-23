@@ -103,9 +103,93 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"main.js":[function(require,module,exports) {
+})({"css.js":[function(require,module,exports) {
+"use strict";
 
-},{}],"C:\\Users\\Ranze\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var string = "/*\n<style>\n* \u9996\u5148\uFF0C\u9700\u8981\u51C6\u5907\u76AE\u5361\u4E18\u7684\u76AE\n.head{\n    border: 5px solid #3c2724;\n    width: 350px;\n    height: 280px;\n    position: absolute;\n    left: 50%;\n    top: 50px;\n    margin-left: -175px;\n    border-radius: 43%;\n    background: black;\n}\n\n.eye{\n    border: 5px solid #3c2724;\n    width: 170px;\n    height: 214px;\n    position: absolute;\n    left: 50%;\n    top: 75px;\n    margin-left: -85px;\n    border-radius: 50%;\n    background: white;\n}\n.eye.left{\n    transform: translateX(-90px) rotate(5deg);\n}\n.eye.right{\n    transform: translateX(90px) rotate(-5deg);\n}\n.eyeball{\n    border: 5px solid #3c2724;\n    width: 114px;\n    height: 150px;\n    position: absolute;\n    left: 50%;\n    top: 25px;\n    margin-left: -57px;\n    border-radius: 50%;\n    background: black;\n}\n.eyeball.left{\n    transform: translateX(-3px) ;\n}\n.eyeball.right{\n    transform: translateX(3px) ;\n}\n.mouth{\n    position: relative;\n    left: 50%;\n    top: 280px;\n    width: 0;\n    height: 0;\n    margin-left:-17px;\n    border: 20px solid transparent;\n    border-top: 33px solid #3c2724;\n}\n\n.lip{\n    position: absolute;\n    left: 50%;\n    top: -30px;\n    width: 0;\n    height: 0;\n    margin-left:-14px;\n    border: 14px solid transparent;\n    border-top: 24px solid #6cb2d3;\n}\n\n.ear{\n    border: 5px solid #3c2724;\n    position: absolute;\n    left: 50%;\n    top: 35px;\n    width:140px;\n    height: 300px;\n    margin-left: -70px;\n    border-radius: 71px/150px;\n    z-index: -1;\n    background: black;\n    overflow: hidden;\n}\n.ear.left{\n    transform: translateX(-95px) rotate(160deg)\n}\n.ear.right{\n    transform: translateX(95px) rotate(200deg)\n}\n.earInner{\n    position: absolute;\n    left:50%;\n    width:140px;\n    height: 300px;\n    border-radius: 71px/150px;\n    margin-left: -70px;\n    top: 50px;\n    background: #97aa5b;\n}\n.earInner.left{\n    transform: translateX(112px) rotate(30deg)\n}\n.earInner.right{\n    transform: translateX(-112px) rotate(330deg)\n}\n.hand{\n    border: 5px solid #3c2724;\n    position: absolute;\n    left: 50%;\n    top: 300px;\n    width:60px;\n    height: 40px;\n    border-radius: 261px/161px;\n    margin-left: -30px;\n    background: black;\n}\n.hand.left{\n    left:290px;\n}\n.hand.right{\n    left: 424px;\n}\n@keyframes move {\n    0%{\n        transform: translateY(0px);\n    }\n    50%{\n        transform: translateY(15px);\n    }\n    100%{\n        transform: translateY(0px);\n    }\n}\n.hand{\n    animation:  move  infinite 1s ;\n}\n\n.ear.left{\n    animation:  leftWave  infinite 1s ;\n}\n\n.ear.right{\n    animation:  rightWave  infinite 1s ;\n}\n</style>\n\n";
+exports.default = string;
+},{}],"main.js":[function(require,module,exports) {
+'use strict';
+
+var _css = require('./css.js');
+
+var _css2 = _interopRequireDefault(_css);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var player = {
+  id: undefined,
+  time: 70,
+  ui: {
+    demo: document.querySelector('#demo'),
+    demo2: document.querySelector('#demo2')
+  },
+  events: {
+    '#btnPause': 'pause',
+    '#btnPlay': 'play',
+    '#btnSlow': 'slow',
+    '#btnNormal': 'normal',
+    '#btnFast': 'fast',
+    '#btnRePlay': 'replay'
+  },
+  n: 1,
+  init: function init() {
+    player.play();
+    player.bindEvents();
+    player.ui.demo.innerText = _css2.default.substring(0, player.n);
+    player.ui.demo2.innerHTML = _css2.default.substring(0, player.n);
+  },
+  bindEvents: function bindEvents() {
+    for (var key in player.events) {
+      if (player.events.hasOwnProperty(key)) {
+        var value = player.events[key];
+        document.querySelector(key).onclick = player[value];
+      }
+    }
+  },
+  run: function run() {
+    player.n += 1;
+    if (player.n > _css2.default.length) {
+      window.clearInterval(player.id);
+      return;
+    }
+    player.ui.demo.innerText = _css2.default.substring(0, player.n);
+    player.ui.demo2.innerHTML = _css2.default.substring(0, player.n);
+    player.ui.demo.scrollTop = player.ui.demo.scrollHeight;
+  },
+  play: function play() {
+    player.id = setInterval(player.run, player.time);
+  },
+  pause: function pause() {
+    window.clearInterval(player.id);
+  },
+  slow: function slow() {
+    player.pause();
+    player.time = 200;
+    player.play();
+  },
+  normal: function normal() {
+    player.pause();
+    player.time = 70;
+    player.play();
+  },
+  fast: function fast() {
+    player.pause();
+    player.time = 0;
+    player.play();
+  },
+  replay: function replay() {
+    player.pause();
+    player.time = 70;
+    player.play(player.n = 0);
+  }
+};
+
+player.init();
+},{"./css.js":"css.js"}],"C:\\Users\\Ranze\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -134,7 +218,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '62740' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57591' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -276,3 +360,4 @@ function hmrAccept(bundle, id) {
   });
 }
 },{}]},{},["C:\\Users\\Ranze\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js","main.js"], null)
+//# sourceMappingURL=/main.bb84ea6f.map
