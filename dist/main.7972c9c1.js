@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"css.js":[function(require,module,exports) {
+})({"K4Xi":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -111,7 +111,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var string = "/*\n* \u9996\u5148\uFF0C\u5148\u6765\u4E00\u4E2A\u80CC\u666F\n*/\n#html{\n    background:rgb(238,236,214);\n}\n/*\n* \u7136\u540E\u7ED9\u7F57\u5C0F\u9ED1\u753B\u4E2A\u5934\n*/\n.head{\n    border: 5px solid #3c2724;\n    width: 350px;\n    height: 280px;\n    position: absolute;\n    left: 50%;\n    top: 50px;\n    margin-left: -175px;\n    border-radius: 43%;\n    background: black;\n}\n\n/*\n * \u63A5\u4E0B\u6765\uFF0C\u753B\u7F57\u5C0F\u9ED1\u7684\u773C\u775B\n */\n.eye{\n    border: 5px solid #3c2724;\n    width: 170px;\n    height: 214px;\n    position: absolute;\n    left: 50%;\n    top: 75px;\n    margin-left: -85px;\n    border-radius: 50%;\n    background: white;\n}\n.eye.left{\n    transform: translateX(-90px) rotate(5deg);\n}\n.eye.right{\n    transform: translateX(90px) rotate(-5deg);\n}\n/*\n * \u8FD8\u6709\u4E24\u9897\u773C\u73E0\u5B50\n */\n.eyeball{\n    border: 5px solid #3c2724;\n    width: 114px;\n    height: 150px;\n    position: absolute;\n    left: 50%;\n    top: 25px;\n    margin-left: -57px;\n    border-radius: 50%;\n    background: black;\n}\n/*\n * \u5DE6\u773C\u5728\u5DE6\u8FB9\uFF0C\u53F3\u773C\u5728\u53F3\u8FB9\uFF08\u5E9F\u8BDD\uFF09\n */\n.eyeball.left{\n    transform: translateX(-3px) ;\n}\n.eyeball.right{\n    transform: translateX(3px) ;\n}\n/*\n * \u63A5\u4E0B\u6765\uFF0C\u753B\u7F57\u5C0F\u9ED1\u7684\u5634\u5DF4\n */\n.mouth{\n    position: relative;\n    left: 50%;\n    top: 280px;\n    width: 0;\n    height: 0;\n    margin-left:-17px;\n    border: 20px solid transparent;\n    border-top: 33px solid #3c2724;\n}\n\n.lip{\n    position: absolute;\n    left: 50%;\n    top: -30px;\n    width: 0;\n    height: 0;\n    margin-left:-14px;\n    border: 14px solid transparent;\n    border-top: 24px solid #6cb2d3;\n}\n/*\n * \u7136\u540E\uFF0C\u753B\u76AE\u5361\u4E18\u7684\u8033\u6735\n */\n.ear{\n    border: 5px solid #3c2724;\n    position: absolute;\n    left: 50%;\n    top: 35px;\n    width:140px;\n    height: 300px;\n    margin-left: -70px;\n    border-radius: 71px/150px;\n    z-index: -1;\n    background: black;\n    overflow: hidden;\n}\n.ear.left{\n    transform: translateX(-95px) rotate(160deg)\n}\n.ear.right{\n    transform: translateX(95px) rotate(200deg)\n}\n/*\n * \u8FD8\u6709\u91CC\u9762\u7684\u5C0F\u8033\u6735\n */\n.earInner{\n    position: absolute;\n    left:50%;\n    width:140px;\n    height: 300px;\n    border-radius: 71px/150px;\n    margin-left: -70px;\n    top: 50px;\n    background: #97aa5b;\n}\n.earInner.left{\n    transform: translateX(112px) rotate(30deg)\n}\n.earInner.right{\n    transform: translateX(-112px) rotate(330deg)\n}\n/*\n * \u63A5\u7740\u753B\u7F57\u5C0F\u9ED1\u7684\u624B\n */\n.hand{\n    border: 5px solid #3c2724;\n    position: absolute;\n    left: 50%;\n    top: 300px;\n    width:60px;\n    height: 40px;\n    border-radius: 261px/161px;\n    margin-left: -30px;\n    background: black;\n}\n.hand.left{\n    transform: translateX(-61px);\n}\n.hand.right{\n    transform: translateX(61px);\n}\n/*\n * \u6700\u540E\uFF0C\u8BA9\u76AE\u5361\u4E18\u52A8\u4E00\u4E0B\u5427\n */\n\n.hand.left{\n    animation:  moveLeft  infinite 1s ;\n}\n.hand.right{\n    animation:  moveRight  infinite 1s ;\n}\n.ear.left{\n    animation:  leftWave  infinite 1s ;\n}\n.ear.right{\n    animation:  rightWave  infinite 1s ;\n}\n";
 exports.default = string;
-},{}],"main.js":[function(require,module,exports) {
+},{}],"epB2":[function(require,module,exports) {
 'use strict';
 
 var _css = require('./css.js');
@@ -189,175 +189,5 @@ var player = {
 };
 
 player.init();
-},{"./css.js":"css.js"}],"C:\\Users\\Ranze\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
-var global = arguments[3];
-var OVERLAY_ID = '__parcel__error__overlay__';
-
-var OldModule = module.bundle.Module;
-
-function Module(moduleName) {
-  OldModule.call(this, moduleName);
-  this.hot = {
-    data: module.bundle.hotData,
-    _acceptCallbacks: [],
-    _disposeCallbacks: [],
-    accept: function (fn) {
-      this._acceptCallbacks.push(fn || function () {});
-    },
-    dispose: function (fn) {
-      this._disposeCallbacks.push(fn);
-    }
-  };
-
-  module.bundle.hotData = null;
-}
-
-module.bundle.Module = Module;
-
-var parent = module.bundle.parent;
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
-  var hostname = '' || location.hostname;
-  var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53353' + '/');
-  ws.onmessage = function (event) {
-    var data = JSON.parse(event.data);
-
-    if (data.type === 'update') {
-      console.clear();
-
-      data.assets.forEach(function (asset) {
-        hmrApply(global.parcelRequire, asset);
-      });
-
-      data.assets.forEach(function (asset) {
-        if (!asset.isNew) {
-          hmrAccept(global.parcelRequire, asset.id);
-        }
-      });
-    }
-
-    if (data.type === 'reload') {
-      ws.close();
-      ws.onclose = function () {
-        location.reload();
-      };
-    }
-
-    if (data.type === 'error-resolved') {
-      console.log('[parcel] ✨ Error resolved');
-
-      removeErrorOverlay();
-    }
-
-    if (data.type === 'error') {
-      console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
-
-      removeErrorOverlay();
-
-      var overlay = createErrorOverlay(data);
-      document.body.appendChild(overlay);
-    }
-  };
-}
-
-function removeErrorOverlay() {
-  var overlay = document.getElementById(OVERLAY_ID);
-  if (overlay) {
-    overlay.remove();
-  }
-}
-
-function createErrorOverlay(data) {
-  var overlay = document.createElement('div');
-  overlay.id = OVERLAY_ID;
-
-  // html encode message and stack trace
-  var message = document.createElement('div');
-  var stackTrace = document.createElement('pre');
-  message.innerText = data.error.message;
-  stackTrace.innerText = data.error.stack;
-
-  overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
-
-  return overlay;
-}
-
-function getParents(bundle, id) {
-  var modules = bundle.modules;
-  if (!modules) {
-    return [];
-  }
-
-  var parents = [];
-  var k, d, dep;
-
-  for (k in modules) {
-    for (d in modules[k][1]) {
-      dep = modules[k][1][d];
-      if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-        parents.push(k);
-      }
-    }
-  }
-
-  if (bundle.parent) {
-    parents = parents.concat(getParents(bundle.parent, id));
-  }
-
-  return parents;
-}
-
-function hmrApply(bundle, asset) {
-  var modules = bundle.modules;
-  if (!modules) {
-    return;
-  }
-
-  if (modules[asset.id] || !bundle.parent) {
-    var fn = new Function('require', 'module', 'exports', asset.generated.js);
-    asset.isNew = !modules[asset.id];
-    modules[asset.id] = [fn, asset.deps];
-  } else if (bundle.parent) {
-    hmrApply(bundle.parent, asset);
-  }
-}
-
-function hmrAccept(bundle, id) {
-  var modules = bundle.modules;
-  if (!modules) {
-    return;
-  }
-
-  if (!modules[id] && bundle.parent) {
-    return hmrAccept(bundle.parent, id);
-  }
-
-  var cached = bundle.cache[id];
-  bundle.hotData = {};
-  if (cached) {
-    cached.hot.data = bundle.hotData;
-  }
-
-  if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
-    cached.hot._disposeCallbacks.forEach(function (cb) {
-      cb(bundle.hotData);
-    });
-  }
-
-  delete bundle.cache[id];
-  bundle(id);
-
-  cached = bundle.cache[id];
-  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-    cached.hot._acceptCallbacks.forEach(function (cb) {
-      cb();
-    });
-    return true;
-  }
-
-  return getParents(global.parcelRequire, id).some(function (id) {
-    return hmrAccept(global.parcelRequire, id);
-  });
-}
-},{}]},{},["C:\\Users\\Ranze\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.bb84ea6f.map
+},{"./css.js":"K4Xi"}]},{},["epB2"], null)
+//# sourceMappingURL=main.7972c9c1.map
